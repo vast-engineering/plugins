@@ -1,0 +1,36 @@
+{
+	"app": {
+		"plugins" :{
+			"router": {
+				"module": "/tests/router.js",
+				"options": {}
+			},
+			"json": {
+				"module": "/index.js#Json",
+				"options": {}
+			},
+			"proxy": {
+				"module": "/index.js#Proxy",
+				"options": {}
+			},
+			"error": {
+				"module": "/index.js#Error"
+			}
+		}
+	},
+	"sites": [
+		{
+			"id": "plugins",
+			"hostmap": [
+				"localhost",
+				"127.0.0.1"
+			],
+			"plugins" :{
+				
+			}
+		}
+	],
+	"server": {
+	    "port": 8080
+	}
+}

@@ -1,0 +1,43 @@
+{
+	"name": "mixdown-plugins",
+	"version": "0.1.0",
+	"main": "index",
+	"description": "General use plugins for mixdown.",
+	"keywords": [
+		"node",
+		"pipeline",
+		"search",
+		"autos"
+	],
+	"author": {
+		"name": "Vast",
+		"email": "vastjs-dev@vast.com",
+		"web": "http://vastdevblog.vast.com/"
+	}, 
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:mixdown/plugins"
+	},
+	"directories": {
+		"tests": "tests"
+	},
+	"engines": {
+		"node": ">=0.8.0"
+	},
+	"scripts": {
+		"test": "node tests/example.js"
+	},
+	"dependencies": {
+		"request": "*",
+		"lodash": "*"
+	},
+	"devDependencies": {
+		"vows": "*",
+		"pipeline-router": "*",
+		"mixdown-server": "git@github.com:mixdown/server"
+	},
+	"optionalDependencies": {},
+	"homepage": "http://vastdevblog.vast.com/"
+}
+
