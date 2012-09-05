@@ -35,7 +35,7 @@
 	"devDependencies": {
 		"vows": "*",
 		"pipeline-router": "*",
-		"mixdown-server": "git@github.com:mixdown/server"
+		"mixdown-server": "*"
 	},
 	"optionalDependencies": {},
 	"homepage": "http://vastdevblog.vast.com/"
