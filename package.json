@@ -30,7 +30,9 @@
 	},
 	"dependencies": {
 		"request": "*",
-		"lodash": "*"
+		"lodash": "*",
+		"browserify": "*",
+		"uglify-js": "*"
 	},
 	"devDependencies": {
 		"vows": "*",
