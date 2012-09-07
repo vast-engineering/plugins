@@ -32,7 +32,8 @@
 		"request": "*",
 		"lodash": "*",
 		"browserify": "*",
-		"uglify-js": "*"
+		"uglify-js": "*",
+		"mime": "*"
 	},
 	"devDependencies": {
 		"vows": "*",
