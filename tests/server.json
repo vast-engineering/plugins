@@ -15,6 +15,9 @@
 			},
 			"error": {
 				"module": "/index.js#Error"
+			},
+			"static": {
+				"module": "/index.js#Static"
 			}
 		}
 	},

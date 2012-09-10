@@ -39,6 +39,12 @@ TestRouter.prototype.attach = function (options) {
 	    	app.plugins.error.fail(new Error("There was an error bro."), res);
 	    });
 
+	    router.get(/.*/, function(req, res) {
+	    	app.plugins.static('.' + req.urlParsed.pathname, res, function(err) {
+	    		console.log(err);
+	    	});
+	    });
+
 	    return router;
 	};
 
