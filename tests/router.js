@@ -39,8 +39,22 @@ TestRouter.prototype.attach = function (options) {
 	    	app.plugins.error.fail(new Error("There was an error bro."), res);
 	    });
 
+	    router.get('/foo.js', function(req, res) {
+	    	app.plugins.static.stream({
+	    		content: "alert('foo');",
+	    		path: req.urlParsed.pathname,
+	    		res: res
+	    	}, function(err) {
+	    		if (err) {
+	    			console.log(err);
+	    			res.writeHead(200);
+	    			res.end(err);
+	    		}
+	    	});
+	    });
+
 	    router.get(/.*/, function(req, res) {
-	    	app.plugins.static({
+	    	app.plugins.static.file({
 		    		path: '.' + req.urlParsed.pathname, 
 		    		res: res,
 		    		headers: { "Cache-Control": "max-age=86400, public" }
