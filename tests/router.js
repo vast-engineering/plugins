@@ -40,9 +40,18 @@ TestRouter.prototype.attach = function (options) {
 	    });
 
 	    router.get(/.*/, function(req, res) {
-	    	app.plugins.static('.' + req.urlParsed.pathname, res, function(err) {
-	    		console.log(err);
-	    	});
+	    	app.plugins.static({
+		    		path: '.' + req.urlParsed.pathname, 
+		    		res: res,
+		    		headers: { "Cache-Control": "max-age=86400, public" }
+		    	}, function(err) {
+		    		if (err) {
+		    			console.log(err);
+		    			res.writeHead(200);
+		    			res.end(err);
+		    		}
+		    	}
+		    );
 	    });
 
 	    return router;
