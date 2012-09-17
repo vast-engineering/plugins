@@ -17,7 +17,12 @@
 				"module": "/index.js#Error"
 			},
 			"static": {
-				"module": "/index.js#Static"
+				"module": "/index.js#Static",
+				"options": {
+					"headers": {
+						"mixdown": "testheader"
+					}
+				}
 			}
 		}
 	},
