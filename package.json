@@ -1,6 +1,6 @@
 {
 	"name": "mixdown-plugins",
-	"version": "0.1.7",
+	"version": "0.1.8",
 	"main": "index",
 	"description": "General use plugins for mixdown.",
 	"keywords": [
@@ -30,7 +30,7 @@
 	},
 	"dependencies": {
 		"request": "*",
-		"lodash": "*",
+		"lodash": "0.7.0",
 		"browserify": "*",
 		"uglify-js": "*",
 		"mime": "*"
