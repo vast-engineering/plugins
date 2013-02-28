@@ -3,5 +3,6 @@ module.exports = {
 	Proxy: require('./lib/proxy'),
 	Error: require('./lib/error'),
     Static: require('./lib/static'),
-    Browserify: require('./lib/browserify')
+    Browserify: require('./lib/browserify'),
+    KeyValue: require('./lib/keyvalue')
 };

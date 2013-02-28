@@ -35,9 +35,10 @@
 		"mime": "1.2.9"
 	},
 	"devDependencies": {
-		"vows": "*",
+		"tap": "*",
 		"pipeline-router": "*",
-		"mixdown-server": "*"
+		"mixdown-server": "*",
+		"broadway" :"*"
 	},
 	"optionalDependencies": {},
 	"homepage": "http://vastdevblog.vast.com/"
