@@ -45,13 +45,31 @@ test('Browserify script uncompressed', function(t) {
     });
 });
 
-test('Browserify script with ignore', function(t) {
+test('Browserify script with ignore with .js suffix', function(t) {
     var app = { plugins: new broadway.App() };
 
     app.plugins.use(new Browserify(), {
         app: app,
         compress: false,
         ignore: ['exclude.js']
+    });
+
+    app.plugins.browserify(require.resolve('./test.js'), function(err, output) {
+        
+        //console.log(output);
+        t.notOk(err, 'Should not be an error');
+        t.notOk(/excluded module/.test(output), 'Should not contain the body of the excluded module.');
+        t.end();
+    });
+});
+
+test('Browserify script with ignore without .js suffix', function(t) {
+    var app = { plugins: new broadway.App() };
+
+    app.plugins.use(new Browserify(), {
+        app: app,
+        compress: false,
+        ignore: ['exclude']
     });
 
     app.plugins.browserify(require.resolve('./test.js'), function(err, output) {
