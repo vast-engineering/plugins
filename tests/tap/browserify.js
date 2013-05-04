@@ -51,13 +51,14 @@ test('Browserify script with ignore', function(t) {
     app.plugins.use(new Browserify(), {
         app: app,
         compress: false,
-        ignore: ['/src/github/mixdown/plugins/node_modules/browserify/node_modules/browser-resolve/builtin/url.js']
+        ignore: ['exclude.js']
     });
 
     app.plugins.browserify(require.resolve('./test.js'), function(err, output) {
         
-        console.log(output);
+        //console.log(output);
         t.notOk(err, 'Should not be an error');
+        t.notOk(/excluded module/.test(output), 'Should not contain the body of the excluded module.');
         t.end();
     });
 });
