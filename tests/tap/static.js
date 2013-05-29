@@ -64,3 +64,38 @@ test('Serve Static file - no etag', function(t) {
     t.end();
   });
 });
+
+test('Stream Static file - no etag', function(t) {
+  var app = { plugins: new broadway.App() };
+  var res = new MockResponse();
+
+  app.plugins.use(new Static(), {
+    app: app,
+    etag: false
+  });
+
+  app.plugins.static.stream({ path: filepath, res: res, content: 'var foo = "bar";' }, function(err) {
+
+    t.notOk(err, 'Should not be an error');
+    t.equal(res.getHeader('Content-Type'), 'application/javascript', 'Content-Type should be application/javascript');
+    t.notOk(res.getHeader('ETag'), 'ETag should not exist for content');
+    t.end();
+  });
+});
+
+test('Stream Static file - with etag', function(t) {
+  var app = { plugins: new broadway.App() };
+  var res = new MockResponse();
+
+  app.plugins.use(new Static(), {
+    app: app
+  });
+
+  app.plugins.static.stream({ path: filepath, res: res, content: 'var foo = "bar";' }, function(err) {
+
+    t.notOk(err, 'Should not be an error');
+    t.equal(res.getHeader('Content-Type'), 'application/javascript', 'Content-Type should be application/javascript');
+    t.ok(res.getHeader('ETag'), 'ETag should exist for content');
+    t.end();
+  });
+});
