@@ -51,12 +51,12 @@ test('Browserify script with ignore with .js suffix', function(t) {
     app.plugins.use(new Browserify(), {
         app: app,
         compress: false,
-        ignore: ['exclude.js']
+        ignore: ['./exclude.js']
     });
 
     app.plugins.browserify(require.resolve('./test.js'), function(err, output) {
         
-        //console.log(output);
+        // console.log(output);
         t.notOk(err, 'Should not be an error');
         t.notOk(/excluded module/.test(output), 'Should not contain the body of the excluded module.');
         t.end();
@@ -69,14 +69,14 @@ test('Browserify script with ignore without .js suffix', function(t) {
     app.plugins.use(new Browserify(), {
         app: app,
         compress: false,
-        ignore: ['exclude']
+        ignore: ['mime']
     });
 
     app.plugins.browserify(require.resolve('./test.js'), function(err, output) {
         
         //console.log(output);
         t.notOk(err, 'Should not be an error');
-        t.notOk(/excluded module/.test(output), 'Should not contain the body of the excluded module.');
+        t.notOk(/Mime\.prototype/.test(output), 'Should not contain the body of the excluded module.');
         t.end();
     });
 });
