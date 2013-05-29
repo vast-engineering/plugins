@@ -1,6 +1,6 @@
 {
 	"name": "mixdown-plugins",
-	"version": "2.2.2",
+	"version": "2.2.3",
 	"main": "index",
 	"description": "General use plugins for mixdown.",
 	"keywords": [
@@ -40,7 +40,8 @@
 		"pipeline-router": "*",
 		"mixdown-server": "*",
 		"broadway" :"*",
-		"hammock": "*"
+		"hammock": "*",
+		"async": "*"
 	},
 	"optionalDependencies": {},
 	"homepage": "http://vastdevblog.vast.com/"

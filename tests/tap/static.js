@@ -4,6 +4,7 @@ var test = tap.test;
 var Static = require('../../index').Static;
 var MockResponse = require('hammock').Response;
 var filepath = require.resolve('./test.js');
+var async = require('async');
 
 console.log(filepath);
 
@@ -85,17 +86,29 @@ test('Stream Static file - no etag', function(t) {
 
 test('Stream Static file - with etag', function(t) {
   var app = { plugins: new broadway.App() };
-  var res = new MockResponse();
+  var res1 = new MockResponse();
+  var res2 = new MockResponse();
+  var queue = [
+    function(cb) {
+      app.plugins.static.stream({ path: filepath, res: res1, content: 'var foo = "bar";' }, cb);
+    },
+    function(cb) {
+      app.plugins.static.stream({ path: filepath, res: res2, content: 'var foo = "bar";' }, cb);
+    }    
+  ];
 
   app.plugins.use(new Static(), {
     app: app
   });
 
-  app.plugins.static.stream({ path: filepath, res: res, content: 'var foo = "bar";' }, function(err) {
-
+  async.parallel(queue, function(err, results) {
     t.notOk(err, 'Should not be an error');
-    t.equal(res.getHeader('Content-Type'), 'application/javascript', 'Content-Type should be application/javascript');
-    t.ok(res.getHeader('ETag'), 'ETag should exist for content');
+    t.equal(res1.getHeader('Content-Type'), 'application/javascript', 'Content-Type should be application/javascript (res1)');
+    t.equal(res2.getHeader('Content-Type'), 'application/javascript', 'Content-Type should be application/javascript (res2)');
+    t.ok(res1.getHeader('ETag'), 'ETag should exist for content (res1)');
+    t.ok(res2.getHeader('ETag'), 'ETag should exist for content (res2)')
+    t.equal(res1.getHeader('ETag'), res2.getHeader('Etag'), 'ETag should match for res1 & res2');
     t.end();
   });
+
 });
