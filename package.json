@@ -1,6 +1,6 @@
 {
 	"name": "mixdown-plugins",
-	"version": "2.2.3",
+	"version": "2.2.4",
 	"main": "index",
 	"description": "General use plugins for mixdown.",
 	"keywords": [
