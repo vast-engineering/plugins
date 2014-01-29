@@ -1,49 +1,48 @@
 {
-	"name": "mixdown-plugins",
-	"version": "2.2.6",
-	"main": "index",
-	"description": "General use plugins for mixdown.",
-	"keywords": [
-		"node",
-		"pipeline",
-		"search",
-		"autos"
-	],
-	"author": {
-		"name": "Vast",
-		"email": "vastjs-dev@vast.com",
-		"web": "http://vastdevblog.vast.com/"
-	}, 
-	"license": "MIT",
-	"repository": {
-		"type": "git",
-		"url": "git@github.com:mixdown/plugins"
-	},
-	"directories": {
-		"tests": "tests"
-	},
-	"engines": {
-		"node": ">=0.8.0"
-	},
-	"scripts": {
-		"test": "node tests/example.js"
-	},
-	"dependencies": {
-		"lodash": "1.2.1",
-		"browserify": "2.36.0",
- 	 	"uglify-js": "2.3.6",
-		"mime": "1.2.9",
-		"through": "2.3.4"
-	},
-	"devDependencies": {
-		"tap": "*",
-		"pipeline-router": "*",
-		"mixdown-server": "*",
-		"broadway" :"*",
-		"hammock": "*",
-		"async": "*"
-	},
-	"optionalDependencies": {},
-	"homepage": "http://vastdevblog.vast.com/"
+  "name": "mixdown-plugins",
+  "version": "2.2.7",
+  "main": "index",
+  "description": "General use plugins for mixdown.",
+  "keywords": [
+    "node",
+    "pipeline",
+    "search",
+    "autos"
+  ],
+  "author": {
+    "name": "Vast",
+    "email": "vastjs-dev@vast.com",
+    "web": "http://vastdevblog.vast.com/"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:mixdown/plugins"
+  },
+  "directories": {
+    "tests": "tests"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "scripts": {
+    "test": "node tests/example.js"
+  },
+  "dependencies": {
+    "lodash": "1.2.1",
+    "browserify": "2.36.0",
+    "uglify-js": "2.3.6",
+    "mime": "1.2.9",
+    "through": "2.3.4"
+  },
+  "devDependencies": {
+    "tap": "*",
+    "pipeline-router": "*",
+    "mixdown-server": "*",
+    "broadway": "*",
+    "hammock": "*",
+    "async": "*"
+  },
+  "optionalDependencies": {},
+  "homepage": "http://vastdevblog.vast.com/"
 }
-
