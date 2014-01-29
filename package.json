@@ -30,7 +30,7 @@
 	},
 	"dependencies": {
 		"lodash": "1.2.1",
-		"browserify": "2.14.2",
+		"browserify": "2.36.0",
  	 	"uglify-js": "2.3.6",
 		"mime": "1.2.9",
 		"through": "2.3.4"
